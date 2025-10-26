@@ -1,0 +1,147 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- AppBar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6200EE"
+        android:elevation="4dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="My Application"
+            app:titleTextColor="@android:color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Контент -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:paddingBottom="56dp"
+        android:fillViewport="true">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="4"
+            android:padding="8dp">
+
+            <!-- 1. Heart -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardHeart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                android:layout_columnWeight="1">
+                <!-- … сюда LinearLayout с ❤️ … -->
+            </androidx.cardview.widget.CardView>
+
+            <!-- 2. Steps -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSteps"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                android:layout_columnWeight="1">
+                <!-- … сюда LinearLayout с 🦶 … -->
+            </androidx.cardview.widget.CardView>
+
+            <!-- 3. Calories -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardCalories"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                android:layout_columnWeight="1">
+                <!-- … сюда LinearLayout с 🔥 … -->
+            </androidx.cardview.widget.CardView>
+
+            <!-- 4. Pressure -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPressure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                android:layout_columnWeight="1">
+                <!-- … сюда LinearLayout с 💓 … -->
+            </androidx.cardview.widget.CardView>
+
+            <!-- 5. Weight -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardWeight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                android:layout_columnWeight="1">
+                <!-- … сюда LinearLayout с ⚖️ … -->
+            </androidx.cardview.widget.CardView>
+
+            <!-- 6. Oxygen -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardOxygen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                android:layout_columnWeight="1">
+                <!-- … сюда LinearLayout с 🩸 … -->
+            </androidx.cardview.widget.CardView>
+
+            <!-- 7. Sleep -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSleep"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                android:layout_columnWeight="1">
+                <!-- … сюда LinearLayout с 🛌 … -->
+            </androidx.cardview.widget.CardView>
+
+            <!-- 8. Respiratory -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardRespiratory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                android:layout_columnWeight="1">
+                <!-- … сюда LinearLayout с 🌬️ … -->
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+    </ScrollView>
+
+    <!-- BottomNavigationView -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:background="@android:color/white"
+        app:itemIconTint="@color/nav_item_color_state"
+        app:itemTextColor="@color/nav_item_color_state"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
