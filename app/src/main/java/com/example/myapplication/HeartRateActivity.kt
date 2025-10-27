@@ -13,7 +13,7 @@ class HeartRateActivity : AppCompatActivity() {
         binding = ActivityHeartRateBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // временно: проверим, что экран открывается
-        binding.root.post { title = "Heart Rate" }
+        // Пока никаких BLE-операций, только сменим заголовок
+        title = "Heart Rate"
     }
 }

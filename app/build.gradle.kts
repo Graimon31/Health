@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.myapplication"
+    namespace = "com.example.myapplication"       // проверьте, что совпадает с вашим пакетом
     compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.myapplication"
-        minSdk = 24              // как у тебя в проекте
-        targetSdk = 29           // ты тестируешь на Android 10
+        minSdk = 24
+        targetSdk = 29            // для Android 10 (API 29)
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -26,20 +26,20 @@ android {
         }
     }
 
-    // Включаем биндинги (оставь true, если в layout есть <layout>)
+    // включаем ViewBinding и DataBinding, чтобы <layout> в XML не ломал сборку
     buildFeatures {
         viewBinding = true
         dataBinding = true
     }
 
-    // Java таргет
+    // Java-совместимость
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
 
-// Kotlin таргет — байткод 1.8, чтобы не конфликтовал с Java
+// Kotlin-компилятор: генерируем байткод JVM 1.8, чтобы совпадало с Java
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     kotlinOptions.jvmTarget = "1.8"
 }

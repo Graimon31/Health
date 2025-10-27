@@ -1,23 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapplication">
 
-    <!-- BLE и локация для Android 6–10 -->
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-
-    <!-- Локация: добавьте ОБЕ — и COARSE, и FINE -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
-    <!-- Нужен BLE -->
-    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+    <!-- Разрешения для BLE и локации (Android 6–10) -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
 
     <application
         android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
 
-        <!-- Стартовая активити -->
+        <!-- Главная активити с LAUNCHER-фильтром -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -27,7 +26,18 @@
             </intent-filter>
         </activity>
 
-        <!-- (позже добавите сюда остальные Activity, когда будете на них переходить) -->
+        <!-- Объявляем остальные экраны, чтобы не было ActivityNotFoundException -->
+        <activity android:name=".HeartRateActivity"/>
+        <activity android:name=".BloodPressureActivity"/>
+        <activity android:name=".CaloriesActivity"/>
+        <activity android:name=".FavoritesActivity"/>
+        <activity android:name=".AnalysisActivity"/>
+        <activity android:name=".StatsActivity"/>
+        <activity android:name=".StepsActivity"/>
+        <activity android:name=".OxygenActivity"/>
+        <activity android:name=".SleepActivity"/>
+        <activity android:name=".RespiratoryActivity"/>
+        <activity android:name=".WeightActivity"/>
 
     </application>
 </manifest>

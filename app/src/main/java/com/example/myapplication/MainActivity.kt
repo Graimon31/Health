@@ -14,43 +14,25 @@ class MainActivity : AppCompatActivity() {
         b = ActivityMainBinding.inflate(layoutInflater)
         setContentView(b.root)
 
-        // 1) Пока НЕ вызываем setSupportActionBar — тема уже NoActionBar
+        // Если хотите использовать свой Toolbar — тема NoActionBar позволяет это.
         // setSupportActionBar(b.toolbar)
 
-        // 2) Клик по карточкам оставим
+        // Инициализируем клики по карточкам
         setupCards()
 
-        // 3) BottomNavigation: «безопасно» — с запасным вариантом
-        try {
-            b.bottomNav.setOnItemSelectedListener { item ->
-                when (item.itemId) {
-                    R.id.nav_home -> true
-                    R.id.nav_stats -> { startActivity(Intent(this, StatsActivity::class.java)); true }
-                    R.id.nav_favorites -> { startActivity(Intent(this, FavoritesActivity::class.java)); true }
-                    R.id.nav_analysis -> { startActivity(Intent(this, AnalysisActivity::class.java)); true }
-                    else -> false
-                }
-            }
-        } catch (t: Throwable) {
-            // если вдруг у тебя старая версия design-библиотеки — используем старый лисенер
-            try {
-                @Suppress("DEPRECATION")
-                b.bottomNav.setOnNavigationItemSelectedListener { item ->
-                    when (item.itemId) {
-                        R.id.nav_home -> true
-                        R.id.nav_stats -> { startActivity(Intent(this, StatsActivity::class.java)); true }
-                        R.id.nav_favorites -> { startActivity(Intent(this, FavoritesActivity::class.java)); true }
-                        R.id.nav_analysis -> { startActivity(Intent(this, AnalysisActivity::class.java)); true }
-                        else -> false
-                    }
-                }
-            } catch (_: Throwable) {
-                // если даже так что-то не так — не валим активити
+        // Устанавливаем слушатель нижнего меню
+        b.bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> true
+                R.id.nav_stats -> { startActivity(Intent(this, StatsActivity::class.java)); true }
+                R.id.nav_favorites -> { startActivity(Intent(this, FavoritesActivity::class.java)); true }
+                R.id.nav_analysis -> { startActivity(Intent(this, AnalysisActivity::class.java)); true }
+                else -> false
             }
         }
     }
 
-    private fun setupCards() { // как у тебя и было
+    private fun setupCards() {
         b.cardHeart.setOnClickListener { startActivity(Intent(this, HeartRateActivity::class.java)) }
         b.cardSteps.setOnClickListener { startActivity(Intent(this, StepsActivity::class.java)) }
         b.cardCalories.setOnClickListener { startActivity(Intent(this, CaloriesActivity::class.java)) }
