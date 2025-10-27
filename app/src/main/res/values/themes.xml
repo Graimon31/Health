@@ -1,13 +1,9 @@
 <resources>
-    <style name="Theme.HealthApp" parent="Theme.Material3.Light">
-        <!-- Disable the legacy action bar/title to allow Compose to draw system UI -->
-        <item name="android:windowActionBar">false</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-
-        <!-- Transparent system bars to blend with Compose surfaces -->
+    <style name="Theme.HealthApp" parent="Theme.Material3.DayNight">
+        <!-- Transparent system bars to blend Compose content with the system UI -->
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
+        <!-- Allow content to extend behind system bars on modern devices -->
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
     </style>
 </resources>
